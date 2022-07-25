@@ -28,3 +28,11 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: docker build -t  registry.cn-shanghai.aliyuncs.com/basis/laravel:base .
+
+      - name: Login to Aliyun Container Registry (ACR)
+        uses: aliyun/acr-login@v1 # 使用阿里云镜像服务action
+        with:
+          login-server: ${{ secrets.DOCKER_HUB_URL }} # 务必正确填写镜像容器服务的登录地址
+          region-id: cn-shanghai # 务必正确填写镜像容器服务的登录地址
+          username: "${{ secrets.REGISTRY_USERNAME }}" # 引用GitHub repo设置的镜像容器服务用户名
+          password: "${{ secrets.REGISTRY_PASSWORD }}" # 引用GitHub repo设置的镜像容器服务密码
