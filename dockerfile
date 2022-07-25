@@ -1,7 +1,7 @@
 # PHP 容器配置
 
 # 从官方基础版本构建
-FROM php:7.2-fpm
+FROM php:7.4-fpm-buster
 # 官方版本默认安装扩展:
 # Core, ctype, curl
 # date, dom
