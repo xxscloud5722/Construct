@@ -36,3 +36,6 @@ jobs:
           region-id: cn-shanghai # 务必正确填写镜像容器服务的登录地址
           username: "${{ secrets.REGISTRY_USERNAME }}" # 引用GitHub repo设置的镜像容器服务用户名
           password: "${{ secrets.REGISTRY_PASSWORD }}" # 引用GitHub repo设置的镜像容器服务密码
+          
+      - name: Build
+        run: docker push registry.cn-shanghai.aliyuncs.com/basis/laravel:base
