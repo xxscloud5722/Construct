@@ -8,6 +8,6 @@ RUN wget http://nginx.org/download/nginx-1.9.2.tar.gz
 RUN tar -xzvf nginx-1.9.2.tar.gz
 RUN cd nginx-1.9.2/
 RUN patch -p1 < /opt/ngx_http_proxy_connect_module-master/patch/proxy_connect.patch
-RUN ./configure --add-module=/opt/ngx_http_proxy_connect_module-master/
+RUN ./configure --with-http_ssl_module --add-module=/opt/ngx_http_proxy_connect_module-master/
 RUN make && make install
 CMD ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
